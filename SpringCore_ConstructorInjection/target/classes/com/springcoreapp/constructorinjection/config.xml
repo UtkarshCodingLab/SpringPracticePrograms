@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    
+    <bean name="ad" class="com.springcoreapp.constructorinjection.Address">
+    <constructor-arg value="Gorwa" type="String" index="0"></constructor-arg>
+    <constructor-arg value="Vadodara" />
+    <constructor-arg value="Gujarat"></constructor-arg>
+    <constructor-arg value="India"></constructor-arg>
+    </bean>
+    
+    <bean name="st" class="com.springcoreapp.constructorinjection.Student">
+    <constructor-arg value="21" type="int" index="0"></constructor-arg>
+    <constructor-arg value="Saran" />
+    <constructor-arg>
+	    <set>
+	    <value>English</value>
+	    <value>S.S.T</value>
+	    </set>
+    </constructor-arg>
+    <constructor-arg>
+	    <list>
+	    <value>66</value>
+	    <value>79</value>
+	    </list>
+    </constructor-arg>
+    <constructor-arg ref="ad"></constructor-arg>
+    
+    </bean>
+
+</beans>

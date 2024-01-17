@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    
+    <bean name="add" class="com.springautowiring.xmlbased.Address">
+    <constructor-arg value="Viman Nagar" />
+    <constructor-arg value="Pune" />
+    <constructor-arg value="India" />
+    </bean>
+    
+    <bean name="st" class="com.springautowiring.xmlbased.Student" autowire="constructor">
+    <property name="roll_number" value="21" />
+    <property name="name" value="Raju"></property>
+    </bean>
+
+</beans>

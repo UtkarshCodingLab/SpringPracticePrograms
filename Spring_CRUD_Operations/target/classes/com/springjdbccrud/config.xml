@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        
+        <bean name="dSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/spring_jdbc"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="Utkar$h#09"></property>
+        </bean>
+		
+		<bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="dSource"></constructor-arg>
+		</bean>
+		
+		<bean name="stud" class="com.springjbdccrud.model.Student">
+		<property name="roll_number" value="5"></property>
+		<property name="name" value="Bhavik"></property>
+		<property name="address" value="Vadodara"></property>
+		</bean>
+		
+		<bean name="studdao" class="com.studentdao.StudentDaoImplements">
+		<constructor-arg ref="jdbcTemplate"></constructor-arg>
+		</bean>
+		
+		
+    <!-- bean definitions here -->
+
+</beans>
